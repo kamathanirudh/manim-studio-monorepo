@@ -629,9 +629,9 @@ sudo tail -f /var/log/postgresql/postgresql-*.log
 
 ## 👨‍💻 Author
 
-**Nirudh Kamath**
+**Anirudh Kamath**
 - GitHub: [@kamathanirudh](https://github.com/kamathanirudh)
-- LinkedIn: [Nirudh Kamath](https://linkedin.com/in/nirudh-kamath)
+- LinkedIn: [Anirudh Kamath](www.linkedin.com/in/anirudh-kamath-255a68222)
 
 ## 🙏 Acknowledgments
 
@@ -645,9 +645,7 @@ sudo tail -f /var/log/postgresql/postgresql-*.log
 ## 📞 Support
 
 For support, please open an issue on GitHub or contact:
-- **Email**: nirudh@example.com *(replace with actual email)*
-- **Discord**: [Manim Studio Community](https://discord.gg/manim-studio) *(if available)*
-
+- **Email**: [kamathanirudh2745@gmail.com](mailto:kamathanirudh2745@gmail.com)
 ---
 
 **⭐ If you find this project helpful, please give it a star on GitHub!**
