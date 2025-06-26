@@ -1,4 +1,4 @@
-# 🎬 Manim Studio - AI-Powered Mathematical Animation Generator
+# 🎬 Manim Studio - AI-Powered Animation Generator
 
 > **Status: Development Complete - Ready for Deployment**  
 > *This project is currently in development and not yet deployed. Deployment link will be added once available.*
@@ -18,16 +18,17 @@
 - [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
 - [Troubleshooting](#troubleshooting)
-- [License](#license)
 
 ## 🎯 Overview
 
-**Manim Studio** is a full-stack web application that generates mathematical animations using AI. Users can describe mathematical concepts in natural language, and the system automatically creates professional-quality animations using the Manim library. This project demonstrates advanced full-stack development skills, AI integration, and mathematical visualization capabilities.
+This project is compeletely inspired by the YT channel 3Blue1Brown who use this style of animation using the **Manim** library in python. Here we bridge the gap so the user does not have to write a single line of code, the LLM does it for them!!
+
+**Manim Studio** is a full-stack web application that generates animations using AI. Users can describe mathematical concepts or 2D animation designs in natural language, and the system automatically creates professional-quality animations using the Manim library. This project demonstrates advanced full-stack development skills, AI integration, and visualization capabilities.
 
 ### 🎨 What It Does
-- **Natural Language Processing**: Converts plain English descriptions into mathematical animations
+- **Natural Language Processing**: Converts plain English descriptions into animations
 - **AI-Powered Generation**: Uses LLaMA-3.3-70B-Instruct-Turbo-Free for intelligent code generation
-- **Real-time Rendering**: Generates high-quality mathematical animations on-demand
+- **Real-time Rendering**: Generates high-quality animations on-demand
 - **Multi-Scene Support**: Combines multiple scene descriptions into cohesive animations
 - **Interactive Web Interface**: Modern, responsive UI for creating and viewing animations
 
@@ -46,7 +47,13 @@
 - **Text and Symbols**: Unicode mathematical symbols (π, θ, ∑, ∫, etc.)
 - **Transformations**: Scaling, rotation, translation, morphing
 - **Animations**: Fade in/out, creation, movement, color changes
+- **Timing & Control**: Fine-grained control over animation duration and easing (run_time, rate_func):
 - **Multi-Scene Sequences**: Combine multiple animations into one video
+
+### 🎯 Aim of this project
+- To empower educators, students, and content creators to easily generate mathematical and conceptual animations using natural language.
+- To simplify the process of creating Manim-based animations without needing in-depth programming knowledge.
+- To support the creation of high-quality, visually engaging educational content with minimal friction.
 
 ### 🎨 User Interface
 - **Modern Design**: Clean, responsive interface built with Next.js and Tailwind CSS
@@ -620,19 +627,15 @@ tail -f frontend.log
 sudo tail -f /var/log/postgresql/postgresql-*.log
 ```
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👨‍💻 Author
 
 **Nirudh Kamath**
 - GitHub: [@kamathanirudh](https://github.com/kamathanirudh)
 - LinkedIn: [Nirudh Kamath](https://linkedin.com/in/nirudh-kamath)
-- Portfolio: [nirudh.dev](https://nirudh.dev) *(if available)*
 
 ## 🙏 Acknowledgments
 
+- **3Brown1Blue**: For the inspiration
 - **Manim Community**: For the amazing mathematical animation library
 - **Together AI**: For providing the LLaMA API
 - **NestJS Team**: For the excellent backend framework
