@@ -21,7 +21,7 @@
 
 ## 🎯 Overview
 
-This project is compeletely inspired by the YT channel 3Blue1Brown who use this style of animation using the **Manim** library in python. Here we bridge the gap so the user does not have to write a single line of code, the LLM does it for them!!
+This project is inspired by the YT channel 3Blue1Brown who use this style of animation using the **Manim** library in python. Here we bridge the gap so the user does not have to write a single line of code, the LLM does it for them!!
 
 **Manim Studio** is a full-stack web application that generates animations using AI. Users can describe mathematical concepts or 2D animation designs in natural language, and the system automatically creates professional-quality animations using the Manim library. This project demonstrates advanced full-stack development skills, AI integration, and visualization capabilities.
 
