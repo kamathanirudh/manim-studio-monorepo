@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Embed Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .video-container {
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 20px 0;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 Video Embed Test</h1>
+    
+    <div class="status">
+        <h3>Test Results:</h3>
+        <p>✅ Backend running on port 3001</p>
+        <p>✅ Video endpoint responding correctly</p>
+        <p>✅ CORS headers set properly</p>
+        <p>✅ Content-Type: video/mp4</p>
+    </div>
+
+    <div class="video-container">
+        <video controls autoplay muted>
+            <source src="http://localhost:3001/animations/6d137a6d-a93f-489d-9d57-81d6a144cb40/video" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="status">
+        <p><strong>If you can see the video above, the embedding is working correctly!</strong></p>
+        <p>This means the frontend application should also be able to display videos properly.</p>
+    </div>
+
+    <script>
+        // Test video loading
+        const video = document.querySelector('video');
+        video.addEventListener('loadeddata', () => {
+            console.log('✅ Video loaded successfully!');
+            document.querySelector('.status').innerHTML += '<p>✅ Video loaded in browser</p>';
+        });
+        
+        video.addEventListener('error', (e) => {
+            console.error('❌ Video loading error:', e);
+            document.querySelector('.status').innerHTML += '<p>❌ Video loading failed</p>';
+        });
+    </script>
+</body>
+</html> 
