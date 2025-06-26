@@ -1,8 +1,8 @@
 "use client"
 
 import { Download, Edit, RotateCcw, Play, Pause, Maximize } from "lucide-react"
-import { useState } from "react"
-import type { Scene } from "@/app/page"
+import { useState, useRef } from "react"
+import type { Scene } from "@/lib/api"
 
 interface VideoPlayerProps {
   videoUrl: string
@@ -13,6 +13,62 @@ interface VideoPlayerProps {
 
 export default function VideoPlayer({ videoUrl, scenes, onCreateNew, onEditScenes }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime)
+    }
+  }
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration)
+    }
+  }
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false)
+    setCurrentTime(0)
+  }
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60)
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`
+  }
+
+  const handleDownload = () => {
+    if (videoRef.current) {
+      const link = document.createElement('a')
+      link.href = videoUrl
+      link.download = 'manim-animation.mp4'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
+  const handleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen()
+      }
+    }
+  }
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -25,15 +81,35 @@ export default function VideoPlayer({ videoUrl, scenes, onCreateNew, onEditScene
 
       {/* Video Player */}
       <div className="relative bg-black rounded-xl overflow-hidden shadow-2xl">
-        <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
-          {/* Mock video placeholder */}
-          <div className="text-center space-y-4">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-              <Play className="w-12 h-12 text-white ml-1" />
+        <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900">
+          {/* Real video player */}
+          <video
+            ref={videoRef}
+            className="w-full h-full object-contain"
+            onTimeUpdate={handleTimeUpdate}
+            onLoadedMetadata={handleLoadedMetadata}
+            onEnded={handleVideoEnded}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            controls={false}
+            preload="none"
+            muted
+          >
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Play button overlay when video is paused */}
+          {!isPlaying && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button
+                onClick={handlePlayPause}
+                className="w-20 h-20 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+              >
+                <Play className="w-10 h-10 text-white ml-1" />
+              </button>
             </div>
-            <p className="text-white text-lg">Mathematical Animation Preview</p>
-            <p className="text-white/70 text-sm">Click play to view your generated animation</p>
-          </div>
+          )}
         </div>
 
         {/* Video Controls */}
@@ -41,19 +117,29 @@ export default function VideoPlayer({ videoUrl, scenes, onCreateNew, onEditScene
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={handlePlayPause}
                 className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
               >
                 {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
               </button>
-              <div className="text-white text-sm">0:00 / 0:30</div>
+              <div className="text-white text-sm">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </div>
             </div>
 
             <div className="flex items-center space-x-2">
-              <button className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded flex items-center justify-center transition-colors">
+              <button 
+                onClick={handleDownload}
+                className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded flex items-center justify-center transition-colors"
+                title="Download video"
+              >
                 <Download className="w-4 h-4 text-white" />
               </button>
-              <button className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded flex items-center justify-center transition-colors">
+              <button 
+                onClick={handleFullscreen}
+                className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded flex items-center justify-center transition-colors"
+                title="Fullscreen"
+              >
                 <Maximize className="w-4 h-4 text-white" />
               </button>
             </div>
@@ -61,7 +147,10 @@ export default function VideoPlayer({ videoUrl, scenes, onCreateNew, onEditScene
 
           {/* Progress bar */}
           <div className="mt-2 w-full bg-white/20 rounded-full h-1">
-            <div className="bg-blue-500 h-1 rounded-full w-1/3"></div>
+            <div 
+              className="bg-blue-500 h-1 rounded-full transition-all duration-100"
+              style={{ width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%' }}
+            ></div>
           </div>
         </div>
       </div>

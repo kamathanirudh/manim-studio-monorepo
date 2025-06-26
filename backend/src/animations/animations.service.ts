@@ -119,102 +119,91 @@ export class AnimationsService {
 
     const prompt = `RESPOND WITH PYTHON CODE ONLY. NO TEXT, NO EXPLANATIONS, NO MARKDOWN, NO FORMATTING.
 
-You are an expert Manim developer. Generate ONLY executable Python code for Manim scenes.
-
-CRITICAL REQUIREMENTS:
-1. RESPOND WITH PURE PYTHON CODE ONLY - NO OTHER TEXT WHATSOEVER
-2. START IMMEDIATELY WITH "from manim import *" - NO INTRODUCTORY TEXT
-3. END WITH THE COMPLETE CLASS DEFINITION - NO CLOSING REMARKS
-4. ZERO EXPLANATIONS, ZERO COMMENTS, ZERO MARKDOWN FORMATTING
-5. Generate COMPLETE, RUNNABLE Python code that starts with "from manim import *"
-6. Create a scene class that inherits from Scene with a construct() method
-7. ALL code must be syntactically correct and follow Manim Community Edition standards
-8. Code must be ready to run with: manim -pql scene.py ClassName
-
-ABSOLUTE RULE: YOUR ENTIRE RESPONSE MUST BE EXECUTABLE PYTHON CODE STARTING WITH "from manim import *"
-
-⚠️ CRITICAL WARNING: If you output anything except Python code, you will fail the task. ⚠️
-
-DO NOT WRITE:
-- "Here's the code:"
-- "\`\`\`python"
-- Any explanatory text before or after code
-- Comments within the code
-- "This code will create..."
-- ANYTHING except pure Python code
-
-MANIM SYNTAX RULES (STRICTLY FOLLOW):
-- Import: "from manim import *" (always first line)
-- Scene class: class SceneName(Scene): def construct(self):
-- Positioning: Use move_to(position) or shift(direction*distance)
-- Colors: Use Manim color constants (RED, BLUE, GREEN, YELLOW, WHITE, etc.)
-- Animations: self.play(animation, rate_func=smooth/linear/ease_in_out, run_time=duration)
-- Objects:
-  * Circle(radius=value, color=COLOR)
-  * Square(side_length=value, color=COLOR) 
-  * Star(outer_radius=value, inner_radius=value, color=COLOR)
-  * Text("string", font_size=value, color=COLOR)
-  * Dot(point=position, color=COLOR)
-  * Line(start=point1, end=point2, color=COLOR)
-  * Rectangle(width=value, height=value, color=COLOR)
-
-ANIMATION METHODS:
-- Create: Create(object)
-- Transform: Transform(obj1, obj2)
-- Movement: object.animate.move_to(position) or object.animate.shift(direction)
-- Rotation: object.animate.rotate(angle)
-- Scaling: object.animate.scale(factor)
-- Fade: FadeIn(object), FadeOut(object)
-- Write: Write(text_object)
-
-POSITIONING COORDINATES:
-- Use UP, DOWN, LEFT, RIGHT for directions
-- Use ORIGIN for center (0,0,0)
-- Multiply directions: 2*UP, 3*LEFT, etc.
-- Specific coordinates: np.array([x, y, z])
-
-MULTIPLE SCENES HANDLING:
-When given multiple scene descriptions:
-1. Create separate scene classes for each description
-2. Name them Scene1, Scene2, Scene3, etc. in order
-3. Each scene should be complete and independent
-4. Maintain context across all scenes - consider visual continuity
-5. Generate ALL scenes in a single code block
-
-ANIMATION BEST PRACTICES:
-- Use run_time parameter for duration control
-- Chain animations logically
-- Use self.wait() between major animation sequences
-- Keep rate_func simple: smooth, linear, ease_in_out only
-- Group related objects for simultaneous animations
-
-FORBIDDEN ELEMENTS:
-- No undefined rate functions or custom functions
-- No external imports beyond "from manim import *"
-- No explanatory text or comments in code
-- No incomplete code blocks
-- No syntax errors
-
-OUTPUT FORMAT:
-Your response must begin immediately with "from manim import *" and contain nothing else but executable Python code. No introductory phrases, no code blocks, no explanations.
-
-EXAMPLE OF CORRECT RESPONSE FORMAT:
-from manim import *
-
-class Scene1(Scene):
-    def construct(self):
-        circle = Circle()
-        self.play(Create(circle))
-
-EXAMPLE OF INCORRECT RESPONSE (DO NOT DO THIS):
-"Here's the Manim code you requested:"
-\`\`\`python
-from manim import *
-...
-\`\`\`
-
-SCENE DESCRIPTIONS TO CONVERT:
-${scenesDescription}`;
+    You are a **mathematically intelligent**, expert-level **Manim Community Edition** Python developer. You understand both **visual mathematics** and **formal animation principles**.
+    
+    You are powered by a highly capable **LLaMA-based large language model** with strong mathematical reasoning and symbolic manipulation abilities.
+    
+    Your task: Convert ALL scene descriptions below into a SINGLE continuous Manim animation. Combine them into ONE coherent, well-structured Python class named **Scene1**.
+    
+    ⚠️ CRITICAL INSTRUCTIONS:
+    1. You will be given **multiple** scene descriptions.
+    2. You MUST combine ALL of them into ONE continuous animation.
+    3. DO NOT skip any scenes – every one MUST be included.
+    4. Use Manim CE objects and methods that BEST represent the **mathematical intent**.
+    5. Favor clear, intuitive mathematical animations. Animate ideas in a natural, continuous way.
+    
+    STRICT FORMAT REQUIREMENTS:
+    - Start your output IMMEDIATELY with: \`from manim import *\`
+    - Define a single class: \`class Scene1(Scene):\`
+    - Use a \`construct(self):\` method to contain the ENTIRE animation
+    - NO text, NO explanations, NO comments, NO markdown
+    - ABSOLUTELY NO extra output except PURE executable Python code
+    
+    MANIM SYNTAX RULES (STRICTLY ENFORCED):
+    - Imports: Always begin with \`from manim import *\`
+    - Classes: Always \`class Scene1(Scene):\`
+    - Text: Always use \`Text("symbol", font_size=, color=)\`, NEVER Tex()
+    - Use Text() for ALL symbols: π, θ, ∑, ∫, ±, ∞, ≤, ≥, ≠, √, ², ³, etc.
+    - Graphs: Use Axes, plot, plot_line_graph from Manim
+    - Animations: Use self.play with run_time and rate_func where appropriate
+    - Create objects, then animate with Transform, FadeIn, MoveTo, etc.
+    - Always use self.wait() between sections to separate them
+    
+    MATHEMATICAL PRIORITY RULES:
+    - When asked to animate equations or mathematical structures, interpret them with maximal mathematical clarity.
+    - Use NumberPlane, Axes, and precise positioning for any geometry or graphs.
+    - Maintain visual flow between scenes – position new elements relative to previous ones.
+    - Label mathematical expressions with \`Text()\` using actual symbols like "∫", "π", "θ", etc., NOT LaTeX.
+    
+    POSITIONING:
+    - Use ORIGIN, UP, DOWN, LEFT, RIGHT or np.array([x, y, z])
+    - Move objects with \`.animate.move_to()\` or \`.shift()\`
+    - For rotations and scaling, use \`.animate.rotate()\`, \`.scale()\`
+    
+    ANIMATION FLOW RULES:
+    - You MUST combine all scene descriptions into ONE Scene1 class
+    - Each scene description becomes a section in the same continuous animation
+    - Between scenes, add \`self.wait(1)\` for pacing
+    - Maintain visual continuity – fade out previous scene elements if necessary before transitioning
+    
+    OUTPUT RULES:
+    ✅ DO respond with:
+    - Only syntactically valid Python code
+    - Starting with: \`from manim import *\`
+    - A single class: \`Scene1(Scene)\`
+    
+    ❌ DO NOT include:
+    - "Here's the code:"
+    - "python"
+    - Explanatory text before or after
+    - Comments inside code
+    - Any output EXCEPT executable code
+    
+    EXAMPLE FLOW:
+    If given:
+      - Scene 1: Draw a circle and rotate it
+      - Scene 2: Transform it into a square and fade it out
+    
+    Then return:
+    from manim import *
+    
+    class Scene1(Scene):
+        def construct(self):
+            circle = Circle(radius=1, color=BLUE)
+            self.play(Create(circle))
+            self.play(circle.animate.rotate(PI))
+            self.wait()
+            square = Square(side_length=2, color=RED)
+            self.play(Transform(circle, square))
+            self.play(FadeOut(square))
+            self.wait()
+    
+    ⬇️⬇️⬇️ NOW BEGIN CODE GENERATION ⬇️⬇️⬇️
+    
+    SCENE DESCRIPTIONS:
+    ${scenesDescription}
+    `;
+    
 
     try {
       const response = await axios.post(
@@ -314,13 +303,8 @@ ${scenesDescription}`;
   }
 
   private extractSceneNames(manimCode: string): string[] {
-    const classRegex = /class\s+(\w+)\s*\(/g;
-    const names: string[] = [];
-    let match;
-    while ((match = classRegex.exec(manimCode)) !== null) {
-      names.push(match[1]);
-    }
-    return names.length > 0 ? names : ['Scene1'];
+    // Since we now generate a single combined scene, always return Scene1
+    return ['Scene1'];
   }
 
   private async generateVideo(animationId: string, manimCode: string): Promise<void> {
@@ -353,21 +337,12 @@ ${scenesDescription}`;
         this.logger.warn('Manim stderr:', stderr);
       }
 
-      // Optionally, find one of the generated video files to store in DB (e.g., the first one)
-      // You may want to enhance this to store all video paths if needed
-      const sceneNames = this.extractSceneNames(manimCode);
-      let foundVideoFile: string | null = null;
-      for (const sceneName of sceneNames) {
-        const videoFile = this.findVideoFile(videosDir, sceneName);
-        if (videoFile) {
-          foundVideoFile = videoFile;
-          break;
-        }
-      }
+      // Find the generated video file (we only have Scene1 now)
+      const videoFile = this.findVideoFile(videosDir, 'Scene1');
 
-      if (foundVideoFile) {
+      if (videoFile) {
         await this.animationRepository.update(animationId, {
-          videoPath: foundVideoFile,
+          videoPath: videoFile,
         });
       } else {
         throw new Error('Generated video file not found');
