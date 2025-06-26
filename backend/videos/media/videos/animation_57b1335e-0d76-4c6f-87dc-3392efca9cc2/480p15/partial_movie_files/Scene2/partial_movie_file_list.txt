@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/ibanez/manim-studio-monorepo/backend/videos/media/videos/animation_57b1335e-0d76-4c6f-87dc-3392efca9cc2/480p15/partial_movie_files/Scene2/1185818338_4023191290_223132457.mp4'
+file 'file:/home/ibanez/manim-studio-monorepo/backend/videos/media/videos/animation_57b1335e-0d76-4c6f-87dc-3392efca9cc2/480p15/partial_movie_files/Scene2/624642324_415679197_2335241141.mp4'
+file 'file:/home/ibanez/manim-studio-monorepo/backend/videos/media/videos/animation_57b1335e-0d76-4c6f-87dc-3392efca9cc2/480p15/partial_movie_files/Scene2/624642324_2834709167_3759135109.mp4'
