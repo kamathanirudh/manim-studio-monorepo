@@ -1,7 +1,7 @@
 # 🎬 Manim Studio - AI-Powered Animation Generator
 
 > **Status: Development Complete - Ready for Deployment**  
-> *This project is currently in development and not yet deployed. Deployment link will be added once available.*
+> *This project is currently in development and not yet deployed. Deployment link will be added once available. For now it can be run localy ONLY*
 
 ## 📋 Table of Contents
 - [Overview](#overview)
