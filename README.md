@@ -1,4 +1,3 @@
- 🎬 Manim Studio - AI-Powered Animation Generator
 # 🎬 Manim Studio - AI-Powered Animation Generator
 
 > **Status: Development Complete - Ready for Deployment**  
