@@ -5,6 +5,7 @@
 
 ## 📋 Table of Contents
 - [Overview](#overview)
+- [Preview](#preview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
@@ -38,6 +39,11 @@ This project is inspired by the YT channel 3Blue1Brown who use this style of ani
 - **Performance Optimization**: Efficient video rendering and delivery
 - **User Experience**: Intuitive interface with real-time feedback
 - **Scalable Architecture**: Microservices design for future expansion
+
+## 👀 Preview
+
+![Demo Animation](CSA.gif)
+
 
 ## ✨ Features
 
