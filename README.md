@@ -4,21 +4,21 @@
 > *This project is currently in development and not yet deployed. Deployment link will be added once available. For now it can be run localy ONLY*
 
 ## 📋 Table of Contents
-- [Overview](#overview)
-- [Preview](#preview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Environment Setup](#environment-setup)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Project Structure](#project-structure)
-- [Development](#development)
-- [Testing](#testing)
-- [Future Enhancements](#future-enhancements)
-- [Troubleshooting](#troubleshooting)
+- [Overview](#-overview)
+- [Preview](#-preview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Environment Setup](#-environment-setup)
+- [Usage](#-usage)
+- [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+- [Development](#-development)
+- [Testing](#-testing)
+- [Future Enhancements](#-future-enhancements)
+- [Troubleshooting](#-troubleshooting)
 
 ## 🎯 Overview
 
