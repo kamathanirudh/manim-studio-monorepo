@@ -45,7 +45,7 @@ This project is inspired by the YT channel 3Blue1Brown who use this style of ani
 
 ![Demo Animation](CSA.gif)
 
-![Demo Animation](SineWave.gif)
+![Demo Animation](SinWave.gif)
 
 
 ## ✨ Features
