@@ -640,7 +640,7 @@ sudo tail -f /var/log/postgresql/postgresql-*.log
 
 **Anirudh Kamath**
 - GitHub: [@kamathanirudh](https://github.com/kamathanirudh)
-- LinkedIn: [Anirudh Kamath](www.linkedin.com/in/anirudh-kamath-255a68222)
+- LinkedIn: [Anirudh Kamath](https://www.linkedin.com/in/anirudh-kamath-255a68222/)
 
 ## 🙏 Acknowledgments
 
